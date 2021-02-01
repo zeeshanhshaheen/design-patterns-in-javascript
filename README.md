@@ -295,6 +295,68 @@ car.SetName('Audi);
 
 let car2 = car.clone()
 car2.SetName('BMW')
+```
+
+## Singleton
+It ensure that there's only for object created for a particular class.
+
+According to Wikipedia 
+> In software engineering, the singleton pattern is a software design pattern that restricts the instantiation of a class to one "single" instance. This is useful when exactly one object is needed to coordinate actions across the system.
+
+#### Example
+Creating a Singleton class
+
+```JavaScript
+class Singleton {
+  constructor()
+  {
+    const instance = this.constructor.instance;
+    if (instance) {
+      return instance;
+    }
+
+    this.constructor.instance = this;
+  }
+
+  say() {
+    console.log('Saying...')
+  }
+}
 
 ```
+Thst's how we will use this,
+
+```JavaScript
+let s1 = new Singleton();
+let s2 = new Singleton();
+console.log('Are they same? ' + (s1 === s2));
+s1.say();
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
