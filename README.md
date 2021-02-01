@@ -78,3 +78,69 @@ console.log(point);
 console.log(point2);
 
 ```
+
+## Abstract Factory
+It creates families or groups of common objects without specifying their concrete classes.
+
+Wikipedia says
+> The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
+
+## Example
+We will be using the example of Drink and Drink making machine.
+
+```JavaScript
+class Drink
+{
+  consume() {}
+}
+
+class Tea extends Drink
+{
+  consume() {
+    console.log('This is Tea');
+  }
+}
+
+class Coffee extends Drink
+{
+  consume()
+  {
+    console.log(`This is Coffee`);
+  }
+}
+```
+Making Drink Factory
+
+```JavaScript
+class DrinkFactory
+{
+  prepare(amount)
+}
+
+class TeaFactory extends DrinkFactory
+{
+  makeTea() 
+  {
+   console.log(`Tea Created`);
+   return new Tea();
+  }
+}
+
+class CoffeeFactory extends DrinkFactory
+{
+   makeCoffee() 
+  {
+   console.log(`Coffee Created`);
+   return new Coffee();
+  }
+}
+
+```
+We will use our factory now
+
+```JavaScript
+let teaDrinkFactory = new TeaFactory();
+let tea = teaDrinkFactory.makeTea()
+tea.consume() 
+
+```
