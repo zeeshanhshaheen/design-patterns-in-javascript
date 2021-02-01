@@ -3,7 +3,7 @@
  20 Design Patterns explaination in JavaScript
 </p>
 <p align="center">
-We will discuss implementation of Design Patternns in JavaScript by using ES6 classes.
+We will discuss implementation of Design Patterns by using JavaScript ES6 classes.
 </p>
 
 ## :rocket: What are Design Patterns?
