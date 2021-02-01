@@ -24,12 +24,57 @@ Creational Design Patterns will create objects for you instead of instantiating 
 According to Wikipedia
 > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
 
- * [Simple Factory](#-simple-factory)
  * [Factory Method](#-factory-method)
  * [Abstract Factory](#-abstract-factory)
  * [Builder](#-builder)
  * [Prototype](#-prototype)
  * [Singleton](#-singleton)
  
- ## Simple Factory
+ ## Factory Method
+ It defines an interface for creating a single object and let childclasses to decide which class to instantiate.
  
+ According to Wikipedia
+> In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
+ 
+## Example
+Let's take an example of a point. We have a class of point and we have to create Cartesian point and Polar point. We will define a Point factory that will do this work
+
+```JavaScript
+CoordinateSystem = {
+  CARTESIAN: 0,
+  POLAR: 1,
+};
+
+class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  static get factory() {
+    return new PointFactory();
+  }
+}
+```
+Now we will create Point Factory
+
+```JavaScript
+class PointFactory {
+  
+  static newCartesianPoint(x, y) {
+    return new Point(x, y);
+  }
+
+  static newPolarPoint(rho, theta) {
+    return new Point(rho * Math.cos(theta), rho * Math.sin(theta));
+  }
+}
+```
+We will use our factory now,
+```JavaScript
+let point = PointFactory.newPolarPoint(5, Math.PI/2);
+let point2 = PointFactory.newCartesianPoint(5, 6)
+console.log(point);
+console.log(point2);
+
+```
