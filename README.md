@@ -26,9 +26,9 @@ According to Wikipedia
 
  * [Factory Method](#factory-method)
  * [Abstract Factory](#abstract-factory)
- * [Builder](#-builder)
- * [Prototype](#-prototype)
- * [Singleton](#-singleton)
+ * [Builder](#builder)
+ * [Prototype](#prototype)
+ * [Singleton](#singleton)
  
  ## Factory Method
  It defines an interface for creating a single object and let childclasses to decide which class to instantiate.
