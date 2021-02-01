@@ -1,4 +1,4 @@
-# Design Patterns in JavaScript
+<h1 align="center"> Design Patterns in JavaScript </h1>
 <p align="center">
  20 Design Patterns explaination in JavaScript
 </p>
