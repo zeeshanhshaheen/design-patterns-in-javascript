@@ -144,3 +144,116 @@ let tea = teaDrinkFactory.makeTea()
 tea.consume() 
 
 ```
+
+## Builder
+It construct complex objects from simple objects.
+
+According to Wikipedia 
+> The builder pattern is a design pattern designed to provide a flexible solution to various object creation problems in object-oriented programming. 
+
+## Example
+We will be using ab example of a person class which stores a Person's information.
+
+```JavaScript
+class Person {
+  constructor() {
+    this.streetAddress = this.postcode = this.city = "";
+
+    this.companyName = this.position = "";
+    this.annualIncome = 0;
+  }
+  toString() {
+    return (
+      `Person lives at ${this.streetAddress}, ${this.city}, ${this.postcode}\n` +
+      `and works at ${this.companyName} as a ${this.position} earning ${this.annualIncome}`
+    );
+  }
+}
+```
+Now we will create Person Builder
+
+```JavaScript
+
+class PersonBuilder {
+  constructor(person = new Person()) {
+    this.person = person;
+  }
+
+  get lives() {
+    return new PersonAddressBuilder(this.person);
+  }
+
+  get works() {
+    return new PersonJobBuilder(this.person);
+  }
+
+  build() {
+    return this.person;
+  }
+}
+```
+
+Now creating PersonJobBuilder that will takes Person's Job's information
+
+```JavaScript
+
+class PersonJobBuilder extends PersonBuilder {
+  constructor(person) {
+    super(person);
+  }
+  at(companyName) {
+    this.person.companyName = companyName;
+    return this;
+  }
+
+  asA(position) {
+    this.person.position = position;
+    return this;
+  }
+
+  earning(annualIncome) {
+    this.person.annualIncome = annualIncome;
+    return this;
+  }
+}
+
+```
+
+PersonAddressBuilder will keep Person's Address' Information
+
+```JavaScript
+class PersonAddressBuilder extends PersonBuilder {
+  constructor(person) {
+    super(person);
+  }
+
+  at(streetAddress) {
+    this.person.streetAddress = streetAddress;
+    return this;
+  }
+
+  withPostcode(postcode) {
+    this.person.postcode = postcode;
+    return this;
+  }
+
+  in(city) {
+    this.person.city = city;
+    return this;
+  }
+}
+```
+Now we will use our builder,
+
+```JavaScript
+let personBuilder = new PersonBuilder();
+let person = personBuilder.lives
+  .at("ABC Road")
+  .in("Multan")
+  .withPostcode("66000")
+  .works.at("Octalogix")
+  .asA("Engineer")
+  .earning(10000)
+  .build();
+console.log(person.toString());
+```
