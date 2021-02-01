@@ -333,6 +333,85 @@ console.log('Are they same? ' + (s1 === s2));
 s1.say();
 ```
 
+## Structural Design Patterns
+These patterns concern class and object composition. They use inheritance to compose interfaces.
+
+According to Wikipedia 
+> In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships among entities.
+
+ * [Adapter](#adapter)
+ * [Bridge](#bridge)
+ * [Composite](#composite)
+ * [Decorator](#decorator)
+ * [Facade](#facade)
+ * [Flyweight](#flyweight)
+ * [Proxy](#proxy)
+
+
+## Adapter
+This pattern allows classes with incompatible interfaces to work together by wrapping its own interface around existing class
+
+According to Wikipedia 
+> In software engineering, the adapter pattern is a software design pattern that allows the interface of an existing class to be used as another interface. It is often used to make existing classes work with others without modifying their source code.
+
+#### Example
+We are using an example of calculator. Calculator1 is an old interface and Calculator2 is new interfcae. We will bw building an adapter that will wraps up new interface and will give us results using it's new methods,
+
+```JavaScript
+
+class Calculator1 {
+  constructor() {
+    this.operations = function(value1, value2, operation) {
+      switch (operation) {
+        case 'add':
+          return value1 + value2;
+        case 'sub':
+          return value1 - value2;
+       
+      }
+    };
+  }
+}
+
+
+class Calculator2 {
+  constructor() {
+    this.add = function(value1, value2) {
+      return value1 + value2;
+    };
+    this.sub = function(value1, value2) {
+      return value1 - value2;
+    };
+  }
+}
+
+```
+Creating Adapter class,
+
+```JavaScript
+class CalcAdapter {
+  constructor() {
+    const cal2 = new Calculator2();
+
+    this.operations = function(value1, value2, operation) {
+      switch (operation) {
+        case 'add':
+          return cal2.add(value1, value2);
+        case 'sub':
+          return cal2.sub(value1, value2);
+      }
+    };
+  }
+}
+```
+Thst's how we will use this,
+
+```JavaScript
+
+const adaptedCalc = new CalcAdapter();
+console.log(adaptedCalc.operations(10, 55, 'sub'));
+
+```
 
 
 
