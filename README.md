@@ -36,7 +36,7 @@ According to Wikipedia
  According to Wikipedia
 > In class-based programming, the factory method pattern is a creational pattern that uses factory methods to deal with the problem of creating objects without having to specify the exact class of the object that will be created. This is done by creating objects by calling a factory method—either specified in an interface and implemented by child classes, or implemented in a base class and optionally overridden by derived classes—rather than by calling a constructor.
  
-## Example
+#### Example
 Let's take an example of a point. We have a class of point and we have to create Cartesian point and Polar point. We will define a Point factory that will do this work
 
 ```JavaScript
@@ -85,7 +85,7 @@ It creates families or groups of common objects without specifying their concret
 According to Wikipedia
 > The abstract factory pattern provides a way to encapsulate a group of individual factories that have a common theme without specifying their concrete classes
 
-## Example
+#### Example
 We will be using the example of Drink and Drink making machine.
 
 ```JavaScript
@@ -151,7 +151,7 @@ It construct complex objects from simple objects.
 According to Wikipedia 
 > The builder pattern is a design pattern designed to provide a flexible solution to various object creation problems in object-oriented programming. 
 
-## Example
+#### Example
 We will be using ab example of a person class which stores a Person's information.
 
 ```JavaScript
@@ -257,3 +257,10 @@ let person = personBuilder.lives
   .build();
 console.log(person.toString());
 ```
+
+## Prototype
+It creates new objects from the existing objects.
+
+According to Wikipedia 
+> The prototype pattern is a creational design pattern in software development. It is used when the type of objects to create is determined by a prototypical instance, which is cloned to produce new objects. 
+
