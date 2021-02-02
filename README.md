@@ -741,8 +741,7 @@ console.log(fivePercent.toString());
 console.log(`5% of 50 is ${50 * fivePercent}`);
 ```
 
-
-
+## Behavioral Design Patterns
 
 
 
