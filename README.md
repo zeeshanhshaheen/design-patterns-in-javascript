@@ -1515,6 +1515,12 @@ chess.run();
 
 ----------------------------------------------------------------
 
+## Reference
+
+[Design Patterns in JavaScript](https://www.udemy.com/course/design-patterns-javascript/) on [Udemy](https://www.udemy.com/) by Dmitri Nesteruk.
+
+---------------------------------------------------------------
+
 ## That was all about <b> JavaScript Design Patterns </b>
 I'll try to improve it further over time. It you think it needs some changes, open a pull request with improvmnents.
  <br>
