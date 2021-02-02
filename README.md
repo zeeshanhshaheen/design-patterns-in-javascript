@@ -573,9 +573,139 @@ let redCircle = new ColoredShape(circle, "red");
 console.log(redCircle.toString());
 ```
 
+## Facade
+It provides a simplified interface to complex code.
 
+According to Wikipedia 
+> The facade pattern (also spelled façade) is a software-design pattern commonly used in object-oriented programming. Analogous to a facade in architecture, a facade is an object that serves as a front-facing interface masking more complex underlying or structural code.
 
+#### Example
 
+Let's take an example of a client intracts with computer.
+
+```JavaScript
+class CPU {
+  freeze() {console.log("Freezed....")}
+  jump(position) { console.log("Go....")}
+  execute() { console.log("Run....") }
+}
+
+class Memory {
+  load(position, data) { console.log("Load....") }
+}
+
+class HardDrive {
+  read(lba, size) { console.log("Read....") }
+}
+```
+Creating Facade
+
+```JavaScript
+class ComputerFacade {
+  constructor() {
+    this.processor = new CPU();
+    this.ram = new Memory();
+    this.hd = new HardDrive();
+  }
+
+  start() {
+    this.processor.freeze();
+    this.ram.load(this.BOOT_ADDRESS, this.hd.read(this.BOOT_SECTOR, this.SECTOR_SIZE));
+    this.processor.jump(this.BOOT_ADDRESS);
+    this.processor.execute();
+  }
+}
+```
+That's how we will use this,
+
+```JavaScript
+let computer = new ComputerFacade();
+computer.start();
+```
+
+## Flyweight
+
+It reduces the memory cost of creating similar objects.
+
+According to Wikipedia 
+> A flyweight is an object that minimizes memory usage by sharing as much data as possible with other similar objects.
+
+#### Example
+Let's take an example of user. Let's we have multiple users with the same name. We can save our memory by storing a name and give it's reference to ther users having same names.
+
+```JavaScript
+class User
+{
+  constructor(fullName)
+  {
+    this.fullName = fullName;
+  }
+}
+
+class User2
+{
+  constructor(fullName)
+  {
+    let getOrAdd = function(s)
+    {
+      let idx = User2.strings.indexOf(s);
+      if (idx !== -1) return idx;
+      else
+      {
+        User2.strings.push(s);
+        return User2.strings.length - 1;
+      }
+    };
+
+    this.names = fullName.split(' ').map(getOrAdd);
+  }
+}
+User2.strings = [];
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+let randomString = function()
+{
+  let result = [];
+  for (let x = 0; x < 10; ++x)
+    result.push(String.fromCharCode(65 + getRandomInt(26)));
+  return result.join('');
+};
+```
+
+That's how we will use this. <br> Now we will make memory compersion without Flyweight and with Flyweight, by making 10k users.
+
+```JavaScript
+
+let users = [];
+let users2 = [];
+let firstNames = [];
+let lastNames = [];
+
+for (let i = 0; i < 100; ++i)
+{
+  firstNames.push(randomString());
+  lastNames.push(randomString());
+}
+
+// making 10k users
+for (let first of firstNames)
+  for (let last of lastNames) {
+    users.push(new User(`${first} ${last}`));
+    users2.push(new User2(`${first} ${last}`));
+  }
+
+console.log(`10k users take up approx ` +
+  `${JSON.stringify(users).length} chars`);
+
+let users2length =
+  [users2, User2.strings].map(x => JSON.stringify(x).length)
+    .reduce((x,y) => x+y);
+console.log(`10k flyweight users take up approx ` +
+  `${users2length} chars`);
+```
 
 
 
