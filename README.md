@@ -1515,9 +1515,10 @@ chess.run();
 
 ----------------------------------------------------------------
 
-That was all about <b> JavaScript Design Patterns </b>. I'll try to improve it further over time. It you think it needs some changes, open a pull request with improvmnents.
+## That was all about <b> JavaScript Design Patterns </b>. 
+I'll try to improve it further over time. It you think it needs some changes, open a pull request with improvmnents.
  <br>
- You would like to follow me on twitter ![@zeeshanhshaheen](https://twitter.com/zeeshanhshaheen) for more updates.
+ You would like to follow me on twitter [@zeeshanhshaheen](https://twitter.com/zeeshanhshaheen) for more updates.
  
  -----------------------------------------------------------------
  
