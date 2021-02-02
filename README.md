@@ -1,6 +1,6 @@
 <h1 align="center"> :computer: Design Patterns in JavaScript :computer: </h1>
 <p align="center">
- 20 Design Patterns explaination in JavaScript
+ 20+ Design Patterns explaination in JavaScript
 </p>
 <p align="center">
 We will discuss implementation of Design Patterns by using JavaScript ES6 classes.
