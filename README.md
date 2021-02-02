@@ -1515,12 +1515,12 @@ chess.run();
 
 ----------------------------------------------------------------
 
-## That was all about <b> JavaScript Design Patterns </b>. 
+## That was all about <b> JavaScript Design Patterns </b>
 I'll try to improve it further over time. It you think it needs some changes, open a pull request with improvmnents.
  <br>
  You would like to follow me on twitter [@zeeshanhshaheen](https://twitter.com/zeeshanhshaheen) for more updates and don't forogt to ⭐️ this repository.
  
- -----------------------------------------------------------------
+
  
  ## License
 
@@ -1545,6 +1545,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+ -----------------------------------------------------------------
 
 
 
